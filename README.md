@@ -6,7 +6,7 @@ Call Notifier est un bot multi-plateforme vous permettant de recevoir une notifi
 
 Call Notifier vous informe avant même que votre téléphone ne sonne ! Il indique le numéro de téléphone de l'appelant, et le nom de votre contact si celui-ci est enregistré dans le répertoire de la Freebox.
 
-Si vous souhaitez l'hébergez vous même rendez-vous sur le [Wiki](https://github.com/Freebox-Tools/bachero-call-notifier/wiki/H%C3%A9berger-soi%E2%80%90m%C3%AAme)
+Si vous souhaitez l'hébergez vous même rendez-vous sur le [wiki](https://github.com/Freebox-Tools/bachero-call-notifier/wiki/H%C3%A9berger-soi%E2%80%90m%C3%AAme)
 
 
 ## Plateformes
