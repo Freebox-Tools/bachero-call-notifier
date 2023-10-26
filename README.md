@@ -1,3 +1,5 @@
+# ⚠️ WIP - Ce module ne fonctionnera pas avant la sortie de la mise à jour v0.11.0-beta de Bachero
+
 # Freebox Call Notifier — Discord
 
 ## Description
