@@ -1,0 +1,32 @@
+{
+	// Nom unique, plusieurs modules ne peuvent pas avoir le même nom
+	"packageName": "freeboxtools.callnotifier",
+
+	// Nom du module
+	"name": "Freebox Call Notifier",
+
+	// Description du module
+	"shortDescription": "Se connecte à votre Freebox et vous notifie en temps réel des appels reçus sur votre fixe.",
+
+	// Source (par exemple, lien du module sur GitHub),
+	"source": "https://github.com/Freebox-Tools/bachero-call-notifier",
+
+	// Liste des fichiers à charger
+	"files": [
+		"callnotifier.js"
+	],
+
+	// Liste des dépendances NodeJS
+    "dependencies": [
+        "freebox-wrapper@1.0.4",
+		"@supabase/supabase-js@2.21.0"
+    ],
+
+	// Liste du/des auteurs du module
+	"authors": [
+		{
+			"name": "Johan",
+			"discordId": "277825082334773251"
+		}
+	]
+}
