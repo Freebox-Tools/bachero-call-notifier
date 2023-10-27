@@ -628,6 +628,21 @@ module.exports = {
 		// Tâche en arrière plan pour vérifier les messages vocaux
 		checkVoicemail()
 		checkCalls()
+
+		// On enregistre régulièrement dans Supabase que le bot est démarré
+		setInterval(async () => {
+			// Si on a pas Supabase
+			if (!supabase) return
+
+			// On ajoute la donnée
+			var { error } = await supabase.from("status").insert({ name: "discord", lastSeen: new Date() })
+
+			// Si la donnée existait déjà, on l'update
+			if(error) {
+				var { error } = await supabase.from("status").update({ lastSeen: new Date() }).match({ name: "discord" })
+				if(error) return console.log("Impossible de mettre à jour le statut dans Supabase", error)
+			}
+		}, 1000 * 90) // toutes les 1m30
 	},
 
 	// Récupérer le listener d'interaction
