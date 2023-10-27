@@ -1045,6 +1045,9 @@ module.exports = {
 				// Defer l'interaction
 				if(await interaction.deferReply().catch(err => { return "stop" }) == "stop") return
 
+				// On ajoute un zéro devant le numéro (Discord le supprime vu que c'est un number)
+				if(!number?.toString()?.startsWith("0")) number = `0${number}`
+
 				// On créé le contact
 				var response = await freebox?.client?.fetch({
 					method: "POST",
