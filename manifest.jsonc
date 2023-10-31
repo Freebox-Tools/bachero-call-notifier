@@ -17,16 +17,17 @@
 	],
 
 	// Liste des dépendances NodeJS
-    "dependencies": [
-        "freebox-wrapper@1.0.4",
+	"dependencies": [
+		"freebox-wrapper@1.0.4",
 		"@supabase/supabase-js@2.21.0"
-    ],
+	],
 
 	// Liste du/des auteurs du module
 	"authors": [
 		{
 			"name": "Johan",
-			"discordId": "277825082334773251"
+			"discordId": "277825082334773251",
+			"link": "https://johanstick.fr"
 		}
 	]
 }
