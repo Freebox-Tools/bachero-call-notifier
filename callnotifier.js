@@ -286,6 +286,9 @@ async function checkVoicemail(){
 
 		// Si il y a une erreur, informer l'utilisateur
 		if(!response?.success){
+			// Si l'erreur est "OK" (????), on ignore car on est pas censé avoir cette erreur mais j'l'ai déjà eu
+			if(response?.msg == "OK") continue
+
 			// Si l'app n'a pas la permission
 			if(response?.msg == "Cette application n'est pas autorisée à accéder à cette fonction"){
 				await disconnectBox(freebox.chatId || freebox.userId, freebox.id) // On déco la box
