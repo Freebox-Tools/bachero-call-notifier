@@ -927,8 +927,8 @@ module.exports = {
 			var freebox = global.callNotifierFreeboxs.find(e => e.userId == interaction.user.id)
 
 			// Afficher des informations sur l'utilisateur
-			if(!user) embed.addFields({ name: "Utilisateur(BDD)", value: "Aucune information n'est en cache. La synchronisation n'a peut-être pas eu lieu." })
-			else embed.addFields({ name: "Utilisateur(BDD)", value: codeBlock(`userId: ${user?.userId}\nchatId: ${user?.chatId}\nplatform: ${user?.platform}\n\nappId: ${user?.appId}\nappToken: ${censorString(user?.appToken)}\napiDomain: ${user?.apiDomain}\nhttpsPort: ${user?.httpsPort}\n\nboxModel: ${user?.boxModel}\nlastVoicemailId: ${user?.lastVoicemailId}\ncreated: ${user?.created}\nid: ${user?.id}`) })
+			if(!user) embed.addFields({ name: "Utilisateur (BDD)", value: "Aucune information n'est en cache. La synchronisation n'a peut-être pas eu lieu." })
+			else embed.addFields({ name: "Utilisateur (BDD)", value: codeBlock(`userId: ${user?.userId}\nchatId: ${user?.chatId}\nplatform: ${user?.platform}\n\nappId: ${user?.appId}\nappToken: ${censorString(user?.appToken)}\napiDomain: ${user?.apiDomain}\nhttpsPort: ${user?.httpsPort}\n\nboxModel: ${user?.boxModel}\nlastVoicemailId: ${user?.lastVoicemailId}\ncreated: ${user?.created}\nid: ${user?.id}`) })
 
 			// Afficher des informations sur le client
 			if(!freebox) embed.addFields({ name: "Client Freebox", value: "Aucune information n'est en cache. La synchronisation n'a peut-être pas eu lieu." })
