@@ -6,7 +6,7 @@
 	"name": "Freebox Call Notifier",
 
 	// Description du module
-	"shortDescription": "Se connecte à votre Freebox et vous notifie en temps réel des appels reçus sur votre fixe.",
+	"shortDescription": "Se connecte à votre Freebox et vous notifie en temps réel des appels reçus sur votre fixe",
 
 	// Source (par exemple, lien du module sur GitHub),
 	"source": "https://github.com/Freebox-Tools/bachero-call-notifier",
