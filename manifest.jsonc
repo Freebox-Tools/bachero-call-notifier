@@ -1,4 +1,5 @@
 {
+	"disabled": true,
 	// Nom unique, plusieurs modules ne peuvent pas avoir le même nom
 	"packageName": "freeboxtools.callnotifier",
 
@@ -18,7 +19,7 @@
 
 	// Liste des dépendances NodeJS
 	"dependencies": [
-		"freebox-wrapper@1.0.4",
+		"freebox-wrapper@1.0.5",
 		"@supabase/supabase-js@2.21.0"
 	],
 
