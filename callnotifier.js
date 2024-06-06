@@ -42,6 +42,7 @@ async function checkInternet(){
 	if(!response) return false
 	else return true
 }
+
 // Supabase
 var { createClient } = require("@supabase/supabase-js")
 var supabase = createClient(process.env.CALLNOTIFIER_SUPABASE_LINK, process.env.CALLNOTIFIER_SUPABASE_KEY)
@@ -508,6 +509,7 @@ async function checkCalls(){
 			// Sinon, juste on log
 			bacheroFunctions.showLog("error", `Impossible d'obtenir l'historique d'appel de la Freebox ${getFreeboxName(freebox.boxModel)} pour l'utilisateur ${freebox.userId} : `, "callnotifier-calls")
 			bacheroFunctions.showLog("error", response, "callnotifier-calls", true, true)
+			bacheroFunctions.showLog("error", freebox, "callnotifier-calls", true, true)
 			continue
 		}
 
@@ -643,7 +645,10 @@ module.exports = {
 			// Si la donnée existait déjà, on l'update
 			if(error) {
 				var { error } = await supabase.from("status").update({ lastSeen: new Date() }).match({ name: "discord" })
-				if(error) return console.log("Impossible de mettre à jour le statut dans Supabase", error)
+				if(error){
+					bacheroFunctions.showLog("error", "Impossible de mettre à jour le statut dans Supabase", "callnotifier-status")
+					return bacheroFunctions.showLog("error", error, "callnotifier-status", true, true)
+				}
 			}
 		}, 1000 * 90) // toutes les 1m30
 	},
@@ -936,7 +941,7 @@ module.exports = {
 
 			// Afficher des informations sur des fonctions
 			var bands = cache.get(`bands-${interaction.user.id}`)
-			embed.addFields({ name: "Fonctions et cache", value: codeBlock(`getFreeboxName():\n      ${user?.boxModel}\n  →   ${getFreeboxName(user?.boxModel)}\n\nphone-${interaction.user.id}:\n      ${cache.get(`phone-${interaction.user.id}`)}\n\nbands-${interaction.user.id}:\n      ${bands?.length ? JSON.stringify(bands?.map(a => { a.password = censorString(a?.password); return a })) : undefined}\n\nfreebox.voicemail:\n      ${freebox.voicemail ? JSON.stringify(freebox.voicemail) : undefined}\n\nfreebox.checkVoicemailfirstIterationPassed:\n      ${freebox?.checkVoicemailfirstIterationPassed}\n\nfreebox.injoignable:\n      ${freebox?.injoignable}`) })
+			embed.addFields({ name: "Fonctions et cache", value: codeBlock(`getFreeboxName():\n      ${user?.boxModel}\n  →   ${getFreeboxName(user?.boxModel)}\n\nphone-${interaction.user.id}:\n      ${cache.get(`phone-${interaction.user.id}`)}\n\nbands-${interaction.user.id}:\n      ${bands?.length ? JSON.stringify(bands?.map(a => { a.password = censorString(a?.password); return a })) : undefined}\n\nfreebox.voicemail:\n      ${freebox?.voicemail ? JSON.stringify(freebox.voicemail) : undefined}\n\nfreebox.checkVoicemailfirstIterationPassed:\n      ${freebox?.checkVoicemailfirstIterationPassed}\n\nfreebox.injoignable:\n      ${freebox?.injoignable}`) })
 
 			// Répondre avec l'embed
 			return interaction.reply({ embeds: [embed] }).catch(err => {})
